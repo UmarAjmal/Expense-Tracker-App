@@ -8,6 +8,8 @@ class EditExpenseScreen extends StatelessWidget {
   final ExpenseController expenseController = Get.find();
   final Expense expense;
 
+  static var routeName;
+
   EditExpenseScreen({Key? key, required this.expense}) : super(key: key);
 
   @override
@@ -61,7 +63,10 @@ class EditExpenseScreen extends StatelessWidget {
                   selectedDate = picked;
                 }
               },
-              child: Text('Select Date: ${DateFormat('yyyy-MM-dd').format(selectedDate)}'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff010101),
+              ),
+              child: Text('Select Date: ${DateFormat('yyyy-MM-dd').format(selectedDate)}',style: TextStyle(color: Colors.white),),
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
@@ -69,9 +74,9 @@ class EditExpenseScreen extends StatelessWidget {
                 _saveExpense(context, categoryController.text, noteController.text, double.parse(amountController.text), selectedDate);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xffF5004F),
+                backgroundColor: const Color(0xff010101),
               ),
-              child: const Text('Save'),
+              child: const Text('Save',style: TextStyle(color: Colors.white),),
             ),
           ],
         ),
@@ -80,7 +85,7 @@ class EditExpenseScreen extends StatelessWidget {
   }
 
   void _saveExpense(BuildContext context, String category, String note, double amount, DateTime date) {
-    expenseController.updateExpense(expense, category, note, amount, date);
+    expenseController.updateExpense(expense , category , note, amount, date);
     Get.back();
   }
 

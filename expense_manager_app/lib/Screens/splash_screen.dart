@@ -48,8 +48,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             AnimatedBuilder(
               animation: _controller,
               builder: (BuildContext context, child) {
-                return Transform.rotate(
-                  angle: _controller.value * 2.0 * math.pi,
+                return Transform.translate(
+                  // angle: _controller.value * 2.0 * math.pi,
+                  offset: Offset(0, 100 * math.sin(_controller.value * 2.0 * math.pi)),
                   child: Container(
                     height: 370,
                     width: 400,

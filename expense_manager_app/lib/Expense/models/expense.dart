@@ -1,30 +1,9 @@
-// import 'package:hive/hive.dart';
-//
-// part 'expense.g.dart';
-//
-// @HiveType(typeId: 0)
-// class Expense extends HiveObject {
-//   @HiveField(0)
-//   final DateTime date;
-//
-//   @HiveField(1)
-//   final double amount;
-//
-//   @HiveField(2)
-//   final String category;
-//
-//   @HiveField(3)
-//   final String note;
-//
-//   Expense(
-//       this.date,  this.amount,  this.category,  this.note);
-// }
-
 
 import 'package:hive/hive.dart';
 
 part 'expense.g.dart';
 
+// Existing Expense class
 @HiveType(typeId: 0)
 class Expense extends HiveObject {
   @HiveField(0)
@@ -45,6 +24,7 @@ class Expense extends HiveObject {
     required this.category,
     required this.note,
   });
+
   Expense copyWith({
     String? category,
     DateTime? date,
